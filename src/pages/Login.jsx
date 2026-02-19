@@ -36,111 +36,179 @@ const Login = () => {
     };
 
     return (
-        <div style={{ display: 'flex', minHeight: '100vh', width: '100%', backgroundColor: '#f9fafb' }}>
-            {/* Left Side - Hero Image */}
+        <div style={{
+            display: 'flex',
+            minHeight: '100vh',
+            width: '100%',
+            backgroundColor: '#111827',
+            position: 'relative',
+            overflow: 'hidden'
+        }}>
+            {/* Background Effects */}
             <div style={{
+                position: 'absolute',
+                top: '-10%',
+                left: '-10%',
+                width: '50%',
+                height: '50%',
+                background: 'radial-gradient(circle, rgba(79, 70, 229, 0.2) 0%, rgba(0,0,0,0) 70%)',
+                filter: 'blur(80px)',
+                zIndex: 0
+            }} />
+            <div style={{
+                position: 'absolute',
+                bottom: '-10%',
+                right: '-10%',
+                width: '50%',
+                height: '50%',
+                background: 'radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, rgba(0,0,0,0) 70%)',
+                filter: 'blur(80px)',
+                zIndex: 0
+            }} />
+
+            {/* Left Side - Hero Content */}
+            <div className="auth-hero" style={{
                 flex: 1,
-                backgroundImage: 'url("https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80")',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
                 position: 'relative',
-                display: 'none',
-                '@media (min-width: 1024px)': { display: 'block' } // Logic handled via CSS class in real app, inline here for simplicity
-            }} className="auth-hero">
+                zIndex: 1,
+                display: 'none', // Hidden on mobile, shown via CSS media query if we were using classes, but here we use inline style logic or keep it simple.
+                // Note: The CSS media query in index.css controls .auth-hero display: block for lg screens
+                padding: '4rem',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                color: 'white'
+            }}>
                 <div style={{
-                    position: 'absolute',
-                    top: 0, left: 0, right: 0, bottom: 0,
-                    backgroundColor: 'rgba(0,0,0,0.4)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    padding: '4rem',
-                    color: 'white'
+                    maxWidth: '600px',
+                    marginLeft: 'auto',
+                    marginRight: '4rem'
                 }}>
-                    <h1 style={{ fontSize: '3.5rem', fontWeight: 'bold', marginBottom: '1rem' }}>Welcome Back</h1>
-                    <p style={{ fontSize: '1.25rem', maxWidth: '500px' }}>Manage your hotel operations with elegance and efficiency.</p>
+                    <h1 style={{
+                        fontSize: '4rem',
+                        fontWeight: '800',
+                        lineHeight: 1.1,
+                        marginBottom: '1.5rem',
+                        background: 'linear-gradient(to right, #ffffff, #a5b4fc)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent'
+                    }}>
+                        Orchestrate<br />Excellence.
+                    </h1>
+                    <p style={{
+                        fontSize: '1.25rem',
+                        color: '#9ca3af',
+                        lineHeight: 1.6,
+                        maxWidth: '480px'
+                    }}>
+                        The premium solution for modern hotel management. Streamline operations, enhance guest experiences, and drive growth.
+                    </p>
+
+                    <div style={{ marginTop: '3rem', display: 'flex', gap: '2rem' }}>
+                        <div>
+                            <div style={{ fontSize: '2rem', fontWeight: 'bold', color: 'white' }}>50+</div>
+                            <div style={{ color: '#6b7280', fontSize: '0.875rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Hotels Managed</div>
+                        </div>
+                        <div>
+                            <div style={{ fontSize: '2rem', fontWeight: 'bold', color: 'white' }}>12k</div>
+                            <div style={{ color: '#6b7280', fontSize: '0.875rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Daily Guests</div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            {/* Right Side - Form */}
+            {/* Right Side - Login Form */}
             <div style={{
                 flex: 1,
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
                 padding: '2rem',
-                backgroundColor: 'white'
+                position: 'relative',
+                zIndex: 1
             }}>
-                <div style={{ width: '100%', maxWidth: '450px' }}>
-                    <div style={{ marginBottom: '2.5rem' }}>
-                        <h2 style={{ fontSize: '2.25rem', fontWeight: 'bold', color: '#111827', marginBottom: '0.5rem' }}>Sign In</h2>
-                        <p style={{ color: '#6b7280' }}>Enter your details to access your account.</p>
+                <div style={{
+                    width: '100%',
+                    maxWidth: '420px',
+                    backgroundColor: 'rgba(255, 255, 255, 0.03)',
+                    backdropFilter: 'blur(20px)',
+                    border: '1px solid rgba(255, 255, 255, 0.05)',
+                    padding: '3rem',
+                    borderRadius: '24px',
+                    boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)'
+                }}>
+                    <div style={{ marginBottom: '2.5rem', textAlign: 'center' }}>
+                        <div style={{
+                            fontSize: '2rem',
+                            marginBottom: '1rem'
+                        }}>🏨</div>
+                        <h2 style={{
+                            fontSize: '1.75rem',
+                            fontWeight: 'bold',
+                            color: 'white',
+                            marginBottom: '0.5rem'
+                        }}>Welcome Back</h2>
+                        <p style={{ color: '#9ca3af' }}>Sign in to your dashboard</p>
                     </div>
 
                     {error && (
                         <div style={{
-                            backgroundColor: '#fee2e2',
-                            color: '#b91c1c',
-                            padding: '1rem',
+                            backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                            color: '#fca5a5',
+                            padding: '0.75rem',
                             borderRadius: '8px',
                             marginBottom: '1.5rem',
-                            border: '1px solid #fca5a5',
-                            display: 'flex',
-                            alignItems: 'center'
+                            border: '1px solid rgba(239, 68, 68, 0.2)',
+                            fontSize: '0.875rem',
+                            textAlign: 'center'
                         }}>
-                            <span style={{ marginRight: '0.5rem' }}>⚠️</span> {error}
+                            {error}
                         </div>
                     )}
 
-                    <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                    <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                         <div>
-                            <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '500', color: '#374151' }}>Email Address</label>
+                            <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.875rem', fontWeight: '500', color: '#d1d5db' }}>Email Address</label>
                             <input
                                 type="email"
                                 name="email"
                                 value={formData.email}
                                 onChange={handleChange}
                                 required
-                                placeholder="name@company.com"
                                 style={{
                                     width: '100%',
-                                    padding: '0.875rem 1rem',
-                                    border: '1px solid #d1d5db',
+                                    padding: '0.75rem 1rem',
                                     borderRadius: '8px',
-                                    fontSize: '1rem',
+                                    backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                                    color: 'white',
                                     outline: 'none',
-                                    transition: 'border-color 0.2s',
-                                    backgroundColor: '#f9fafb'
+                                    transition: 'border-color 0.2s'
                                 }}
-                                onFocus={(e) => e.target.style.borderColor = '#2563eb'}
-                                onBlur={(e) => e.target.style.borderColor = '#d1d5db'}
+                                onFocus={(e) => e.target.style.borderColor = '#6366f1'}
+                                onBlur={(e) => e.target.style.borderColor = 'rgba(255, 255, 255, 0.1)'}
                             />
                         </div>
 
                         <div>
-                            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-                                <label style={{ fontWeight: '500', color: '#374151' }}>Password</label>
-                                <a href="#" style={{ color: '#2563eb', textDecoration: 'none', fontSize: '0.875rem' }}>Forgot password?</a>
-                            </div>
+                            <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.875rem', fontWeight: '500', color: '#d1d5db' }}>Password</label>
                             <input
                                 type="password"
                                 name="password"
                                 value={formData.password}
                                 onChange={handleChange}
                                 required
-                                placeholder="••••••••"
                                 style={{
                                     width: '100%',
-                                    padding: '0.875rem 1rem',
-                                    border: '1px solid #d1d5db',
+                                    padding: '0.75rem 1rem',
                                     borderRadius: '8px',
-                                    fontSize: '1rem',
+                                    backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                                    color: 'white',
                                     outline: 'none',
-                                    transition: 'border-color 0.2s',
-                                    backgroundColor: '#f9fafb'
+                                    transition: 'border-color 0.2s'
                                 }}
-                                onFocus={(e) => e.target.style.borderColor = '#2563eb'}
-                                onBlur={(e) => e.target.style.borderColor = '#d1d5db'}
+                                onFocus={(e) => e.target.style.borderColor = '#6366f1'}
+                                onBlur={(e) => e.target.style.borderColor = 'rgba(255, 255, 255, 0.1)'}
                             />
                         </div>
 
@@ -149,36 +217,27 @@ const Login = () => {
                             disabled={isLoading}
                             style={{
                                 marginTop: '1rem',
-                                width: '100%',
-                                padding: '1rem',
-                                backgroundColor: '#2563eb',
+                                padding: '0.875rem',
+                                backgroundColor: '#4f46e5',
                                 color: 'white',
                                 border: 'none',
                                 borderRadius: '8px',
-                                fontSize: '1rem',
                                 fontWeight: '600',
+                                fontSize: '1rem',
                                 cursor: isLoading ? 'not-allowed' : 'pointer',
-                                transition: 'background-color 0.2s',
                                 opacity: isLoading ? 0.7 : 1,
-                                display: 'flex',
-                                justifyContent: 'center',
-                                alignItems: 'center'
+                                transition: 'background-color 0.2s'
                             }}
-                            onMouseOver={(e) => !isLoading && (e.target.style.backgroundColor = '#1d4ed8')}
-                            onMouseOut={(e) => !isLoading && (e.target.style.backgroundColor = '#2563eb')}
+                            onMouseOver={(e) => !isLoading && (e.target.style.backgroundColor = '#4338ca')}
+                            onMouseOut={(e) => !isLoading && (e.target.style.backgroundColor = '#4f46e5')}
                         >
                             {isLoading ? 'Signing in...' : 'Sign In'}
                         </button>
                     </form>
 
-                    <div style={{ marginTop: '2rem', textAlign: 'center' }}>
-                        <p style={{ color: '#6b7280' }}>
-                            Don't have an account?{' '}
-                            <Link to="/register" style={{ color: '#2563eb', fontWeight: '500', textDecoration: 'none' }}>
-                                Create an account
-                            </Link>
-                        </p>
-                    </div>
+                    <p style={{ textAlign: 'center', marginTop: '2rem', color: '#9ca3af', fontSize: '0.875rem' }}>
+                        Don't have an account? <Link to="/register" style={{ color: '#818cf8', fontWeight: '500' }}>Register</Link>
+                    </p>
                 </div>
             </div>
         </div>

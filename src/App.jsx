@@ -13,8 +13,10 @@ import Rooms from './pages/manager/Rooms';
 import Employees from './pages/manager/Employees';
 import Inventory from './pages/manager/Inventory';
 import ManagerExpenses from './pages/manager/ManagerExpenses';
+import Bookings from './pages/receptionist/Bookings';
+import Guests from './pages/receptionist/Guests';
 import {
-  Bookings, Guests, MyBookings
+  MyBookings
 } from './pages/PlaceholderPages';
 import './App.css';
 

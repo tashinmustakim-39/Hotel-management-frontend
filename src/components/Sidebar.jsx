@@ -6,34 +6,36 @@ const Sidebar = () => {
     const role = user?.role;
 
     const linkStyle = ({ isActive }) => ({
-        display: 'block',
-        padding: '0.75rem 1rem',
+        display: 'flex',
+        alignItems: 'center',
+        padding: '0.75rem 1.5rem',
         color: isActive ? 'white' : '#9ca3af',
-        backgroundColor: isActive ? '#374151' : 'transparent',
+        backgroundColor: isActive ? 'var(--primary)' : 'transparent',
         textDecoration: 'none',
-        borderRadius: '4px',
-        marginBottom: '0.25rem',
+        borderLeft: isActive ? '4px solid white' : '4px solid transparent',
         transition: 'all 0.2s',
-        fontWeight: isActive ? 'bold' : 'normal'
+        fontWeight: isActive ? '600' : '500',
+        fontSize: '0.95rem'
     });
 
     const SectionHeader = ({ title }) => (
         <div style={{
             textTransform: 'uppercase',
-            fontSize: '0.75rem',
+            fontSize: '0.7rem',
             color: '#6b7280',
             fontWeight: 'bold',
             marginTop: '1.5rem',
             marginBottom: '0.5rem',
-            paddingLeft: '0.5rem'
+            paddingLeft: '1.5rem',
+            letterSpacing: '0.05em'
         }}>
             {title}
         </div>
     );
 
     return (
-        <nav style={{ flex: 1, overflowY: 'auto' }}>
-            <ul style={{ listStyle: 'none', padding: 0 }}>
+        <nav>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                 <li>
                     <NavLink to="/dashboard" style={linkStyle}>
                         Dashboard
@@ -74,8 +76,6 @@ const Sidebar = () => {
 
                 {/* User (Guest) Links */}
                 {(role === 'user' || !role) && (
-                    /* Assuming 'user' or null/undefined if we want to default to user view, 
-                       but strictly speaking 'user' role should be explicit from backend.*/
                     <>
                         <SectionHeader title="My Account" />
                         <li><NavLink to="/my-bookings" style={linkStyle}>My Bookings</NavLink></li>
