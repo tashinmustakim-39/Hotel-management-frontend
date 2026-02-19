@@ -6,9 +6,13 @@ import Dashboard from './pages/Dashboard';
 import MainLayout from './layouts/MainLayout';
 import ProtectedRoute from './components/ProtectedRoute';
 import { AuthProvider } from './context/AuthContext';
+import Hotels from './pages/admin/Hotels';
+import Users from './pages/admin/Users';
+import Expenses from './pages/admin/Expenses';
+import Rooms from './pages/manager/Rooms';
+import Employees from './pages/manager/Employees';
 import {
-  Hotels, Expenses, Users,
-  Rooms, Employees, Inventory,
+  Inventory,
   Bookings, Guests, MyBookings
 } from './pages/PlaceholderPages';
 import './App.css';
@@ -28,8 +32,9 @@ function App() {
 
               {/* Admin Routes */}
               <Route path="/hotels" element={<Hotels />} />
-              <Route path="/expenses" element={<Expenses />} />
+              <Route path="/rooms" element={<Rooms />} />
               <Route path="/users" element={<Users />} />
+              <Route path="/expenses" element={<Expenses />} />
 
               {/* Manager Routes */}
               <Route path="/rooms" element={<Rooms />} />

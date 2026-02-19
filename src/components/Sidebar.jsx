@@ -45,6 +45,7 @@ const Sidebar = () => {
                     <>
                         <SectionHeader title="Management" />
                         <li><NavLink to="/hotels" style={linkStyle}>Hotels</NavLink></li>
+                        <li><NavLink to="/rooms" style={linkStyle}>Rooms</NavLink></li>
                         <li><NavLink to="/expenses" style={linkStyle}>Expenses</NavLink></li>
                         <li><NavLink to="/users" style={linkStyle}>Users</NavLink></li>
                     </>
