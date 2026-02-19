@@ -11,8 +11,9 @@ import Users from './pages/admin/Users';
 import Expenses from './pages/admin/Expenses';
 import Rooms from './pages/manager/Rooms';
 import Employees from './pages/manager/Employees';
+import Inventory from './pages/manager/Inventory';
+import ManagerExpenses from './pages/manager/ManagerExpenses';
 import {
-  Inventory,
   Bookings, Guests, MyBookings
 } from './pages/PlaceholderPages';
 import './App.css';
@@ -40,6 +41,7 @@ function App() {
               <Route path="/rooms" element={<Rooms />} />
               <Route path="/employees" element={<Employees />} />
               <Route path="/inventory" element={<Inventory />} />
+              <Route path="/manager-expenses" element={<ManagerExpenses />} />
 
               {/* Receptionist Routes */}
               <Route path="/bookings" element={<Bookings />} />

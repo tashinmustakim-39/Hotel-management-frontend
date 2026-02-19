@@ -59,7 +59,7 @@ const Sidebar = () => {
                         <li><NavLink to="/employees" style={linkStyle}>Employees</NavLink></li>
                         <li><NavLink to="/inventory" style={linkStyle}>Inventory</NavLink></li>
                         <SectionHeader title="Finance" />
-                        <li><NavLink to="/expenses" style={linkStyle}>Expenses</NavLink></li>
+                        <li><NavLink to="/manager-expenses" style={linkStyle}>Expenses</NavLink></li>
                     </>
                 )}
 
