@@ -1,5 +1,6 @@
 import { Outlet, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import Sidebar from '../components/Sidebar';
 
 const MainLayout = () => {
     const { user, logout } = useAuth();
@@ -25,14 +26,7 @@ const MainLayout = () => {
                     Hotel App
                 </div>
 
-                <nav style={{ flex: 1 }}>
-                    <ul style={{ listStyle: 'none', padding: 0 }}>
-                        <li style={{ marginBottom: '0.5rem' }}>
-                            <a href="/dashboard" style={{ color: 'white', textDecoration: 'none', display: 'block', padding: '0.5rem' }}>Dashboard</a>
-                        </li>
-                        {/* Placeholder for role-based links */}
-                    </ul>
-                </nav>
+                <Sidebar />
 
                 <div style={{ borderTop: '1px solid #374151', paddingTop: '1rem' }}>
                     <div style={{ marginBottom: '0.5rem' }}>{user?.name || 'User'}</div>
