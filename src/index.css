@@ -24,10 +24,20 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Auth Hero visibility - handled inline in JS but good to have backup */
+.auth-hero {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .auth-hero {
+    display: block !important;
+  }
 }
 
 h1 {
